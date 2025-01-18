@@ -1,0 +1,17 @@
+version: '3.8'
+# App Service: Venue Module
+services:
+  venue-management-frontend-uat:
+    image: 441336081314.dkr.ecr.ap-south-1.amazonaws.com/venue-management-frontend-uat:latest
+    container_name: venue-management-frontend-uat
+    user: root
+    privileged: true
+    working_dir: /app
+    ports:
+      - "4002:3000"
+    restart: unless-stopped
+    networks:
+      - mynetwork
+networks:
+  mynetwork:
+    driver: bridge
